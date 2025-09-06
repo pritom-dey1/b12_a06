@@ -1,0 +1,252 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+html,body{
+    background-color: #f0fdf4;
+    height: 100%;
+    width: 100%;
+}
+h1,h2,h3{
+    font-family: roboto;
+}
+p{
+    font-family: poppins;
+}
+a{
+    text-decoration: none;
+}
+.btn{
+  background-color: #facc15;
+  border: none;
+  font-family: poppins;
+  color: #15803d;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+.btn-form{
+      background-color: #facc15;
+  border: none;
+  font-family: poppins;
+  color: #15803d;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+.btn:hover{
+    background-color: #facc15;
+    scale: 1.05;
+}
+
+/* nav bar style  */
+
+.nav_item_warper{
+    display: flex;
+    
+     width: 100%;
+    background-color: #15803d;  
+
+  
+  position: fixed;
+    top: 0%;
+   left: 0%;
+    z-index: 2;
+
+    padding: 15px 40px;
+    align-items: center;
+
+    justify-content: space-between;
+}
+.logo{
+    font-family: roboto;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #fff;
+}
+.links{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.links a{
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-family: poppins;
+}
+/* banner section style  */
+.banner{
+    background-color: #cff0dc;
+    padding: 100px 0;
+    position: relative;
+    display: flex;
+    padding-top: 150px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.banner h1,p{
+    z-index: 1 ;
+
+    color: #1f2937;
+    text-align: center;
+
+}
+.left_leap img{
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    object-fit: cover;
+    width: 370px;
+}
+.right_leap img{
+    position: absolute;
+    object-fit: cover;
+    bottom: 0%;
+    width: 370px;
+    right: 0%;
+}
+
+/* about section style  */
+.about{
+    width: 70%;
+    max-width: 1000px;
+    padding: 30px 0;
+    margin: 0 auto;
+    
+}
+.about h2{
+    text-align: center;
+    color: #1f2937;
+    font-size: 26px;
+}
+.about_box{
+    gap: 20px;
+    display: flex;
+   margin-top: 20px;
+}
+.about_left {
+  width: 50%;
+  position: relative;
+}
+.about_left img{
+    width: 100%;
+    object-fit: cover;
+}
+.about_right{
+    width: 50%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+}
+.about_right p{
+    text-align: left;
+}
+
+/* impact style  */
+.impact{
+    background-color: #cff0dc;
+    padding: 50px 0;
+}
+.impact h2{
+        text-align: center;
+    color: #1f2937;
+    font-size: 26px;
+}
+.impact_box{
+    background-color: #fff;
+    padding:40px 90px;
+    flex-direction: column;
+    display: flex;
+    border-radius: 10px;
+    transition: all ease 0.3s;
+    align-items: center;
+    justify-content: center;
+}
+.impact_box span{
+    font-size: 22px;
+    font-weight: 600;
+    font-family: poppins;
+    color: #15803d;
+}
+.impact_boxs{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 35px;
+}
+.impact_box:hover{
+    background-color: #20c95e;
+} 
+.impact_box:hover span{
+    color: #fff;
+}
+
+
+/* contact part  */
+.contact_part{
+    padding: 70px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #166534;
+}
+.contact_part h2{
+        text-align: center;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 500;
+}
+.contact_part form{
+    background-color: #15803d;
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+    border-radius: 10px;
+}
+.contact_part form input{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+}
+select {
+    padding: 10px;
+    width: 100%;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    appearance: none; /* removes default arrow */
+    background: white url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>") no-repeat right 10px center;
+    background-size: 16px;
+    cursor: pointer;
+}
+
+select:focus {
+      border-color: #2e7d32;
+      box-shadow: 0 0 5px rgba(46, 125, 50, 0.5);
+}
+
+/* footer style  */
+.footer{
+    padding: 10px 0;
+    background-color: #14532d;
+
+}
+.footer p{
+    color: #fff;
+}
