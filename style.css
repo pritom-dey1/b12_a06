@@ -250,3 +250,129 @@ select:focus {
 .footer p{
     color: #fff;
 }
+
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.spinner {
+  display: none; /* JS-এ block করবে */
+  text-align: center;
+  font-weight: bold;
+  color: #34a853;
+  font-size: 18px;
+  padding: 20px;
+}
+.tree-shop {
+  background: #f0faf3;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.shop-layout {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 20px;
+}
+
+.categories, .cart {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+#category-container button {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
+  border: none;
+  background: #e6f5ec;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#category-container button:hover,
+#category-container .active {
+  background: #34a853;
+  color: white;
+}
+
+.plant-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.plant-card {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.plant-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.card-actions button {
+  flex: 1;
+  margin: 0 2px;
+  padding: 5px;
+  background: #34a853;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.spinner {
+  text-align: center;
+  font-weight: bold;
+  color: #34a853;
+}
+
+/* Modal Style */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+}
+
+.close-btn {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
