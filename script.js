@@ -1,35 +1,36 @@
-// ======== DOM Elements ========
+// ==================== DOM ELEMENTS ====================
 const categoryContainer = document.getElementById("category-container");
 const plantContainer = document.getElementById("plant-container");
 const cartContainer = document.getElementById("cart-container");
 const cartTotalElement = document.getElementById("cart-total");
 const spinner = document.getElementById("spinner");
 
-// ======== Global State ========
+// ==================== GLOBAL STATE ====================
 let cart = [];
 let activeCategoryBtn = null;
 let allPlants = [];
-let loadedCount = 0;          
-const BATCH_SIZE = 6;         
+let loadedCount = 0;
+const BATCH_SIZE = 6; // Number of plants to load per batch
 
-// ======== Load All Categories ========
+// ==================== LOAD CATEGORIES ====================
 const loadCategories = async () => {
   try {
     const res = await fetch("https://openapi.programming-hero.com/api/categories");
     const data = await res.json();
 
     displayCategories(data.categories);
-    await loadAllPlants();
+    await loadAllPlants(); // Load all plants after categories
   } catch (error) {
-    console.error("Error loading categories:", error);
+    // Handle API errors
+    alert("Failed to load categories.");
   }
 };
 
-// ======== Display Categories ========
+// ==================== DISPLAY CATEGORIES ====================
 const displayCategories = (categories) => {
   categoryContainer.innerHTML = "";
 
-  // All Trees button
+  // "All Trees" button
   const allBtn = document.createElement("button");
   allBtn.className = "category-btn";
   allBtn.innerText = "All Trees";
@@ -39,10 +40,10 @@ const displayCategories = (categories) => {
   };
   categoryContainer.appendChild(allBtn);
 
-  // Set default active
+  // Set default active button
   highlightActive(allBtn);
 
-  // Other categories
+  // Display other categories
   categories.forEach((cat) => {
     const button = document.createElement("button");
     button.className = "category-btn";
@@ -55,14 +56,14 @@ const displayCategories = (categories) => {
   });
 };
 
-// ======== Highlight Active Button ========
+// ==================== HIGHLIGHT ACTIVE BUTTON ====================
 const highlightActive = (btn) => {
   if (activeCategoryBtn) activeCategoryBtn.classList.remove("active");
   btn.classList.add("active");
   activeCategoryBtn = btn;
 };
 
-// ======== Load All Plants ========
+// ==================== LOAD ALL PLANTS ====================
 const loadAllPlants = async () => {
   try {
     spinner.style.display = "block";
@@ -72,45 +73,44 @@ const loadAllPlants = async () => {
     allPlants = data.plants;
     displayPlants(allPlants, true);
   } catch (error) {
-    console.error("Error loading plants:", error);
+    alert("Failed to load plants.");
   } finally {
     spinner.style.display = "none";
   }
 };
 
-// ======== Display Plants by Category ========
+// ==================== DISPLAY PLANTS BY CATEGORY ====================
 const displayCategoryPlants = (categoryName) => {
   const filteredPlants = allPlants.filter(
-    p => p.category?.trim().toLowerCase() === categoryName.trim().toLowerCase()
+    (p) => p.category?.trim().toLowerCase() === categoryName.trim().toLowerCase()
   );
   displayPlants(filteredPlants, true);
 };
 
-// ======== Display Plants with Infinite Scroll + Animation ========
+// ==================== DISPLAY PLANTS WITH INFINITE SCROLL ====================
 const displayPlants = (plants, reset = true) => {
   if (reset) {
     plantContainer.innerHTML = "";
     loadedCount = 0;
   }
 
-  // slice দিয়ে নতুন batch আনা
+  // Load the next batch of plants
   const nextBatch = plants.slice(loadedCount, loadedCount + BATCH_SIZE);
   loadedCount += nextBatch.length;
 
-  nextBatch.forEach((plant, idx) => {
+  nextBatch.forEach((plant) => {
     const card = document.createElement("div");
-    card.className = "plant-card hidden"; // hidden দিয়ে শুরু
+    card.className = "plant-card hidden";
 
     card.innerHTML = `
       <img src="${plant.image}" alt="${plant.name}" />
       <h3 class="plant-name">${plant.name}</h3>
       <p>${plant.description.substring(0, 50)}...</p>
-      
-      <div style="margin-top:10px;display: flex;align-items: center;justify-content: space-between;">
-        <p style="color:#34a853;background-color:#dcfce7;padding:5px;border-radius:5px;font-size:12px;">
+      <div style="margin-top:10px; display:flex; justify-content:space-between; align-items:center;">
+        <p style="color:#34a853; background-color:#dcfce7; padding:5px; border-radius:5px; font-size:12px;">
           ${plant.category_name || plant.category}
         </p>
-        <p style="color:#1f2937;font-weight:600;">৳${plant.price || 100}</p>
+        <p style="color:#1f2937; font-weight:600;">৳${plant.price || 100}</p>
       </div>
       <div class="card-actions">
         <button onclick="addToCart(${plant.id}, '${plant.name}', ${plant.price || 100})">Add to Cart</button>
@@ -119,24 +119,25 @@ const displayPlants = (plants, reset = true) => {
 
     plantContainer.appendChild(card);
 
+    // Show modal on plant name click
     const nameElement = card.querySelector(".plant-name");
     nameElement.addEventListener("click", () => showDetails(plant));
   });
 
-  // নতুন কার্ড observe করানো
+  // Observe new cards for animation
   observeCards();
 };
 
-// ======== Infinite Scroll ========
+// ==================== INFINITE SCROLL EVENT ====================
 window.addEventListener("scroll", () => {
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
     if (activeCategoryBtn && activeCategoryBtn.innerText === "All Trees") {
-      displayPlants(allPlants, false); // reset = false → আগেরগুলো থাকবে
+      displayPlants(allPlants, false);
     }
   }
 });
 
-// ======== Intersection Observer for stagger animation ========
+// ==================== INTERSECTION OBSERVER FOR STAGGER ANIMATION ====================
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -145,8 +146,7 @@ const observer = new IntersectionObserver(
         const allCards = [...document.querySelectorAll(".plant-card")];
         const index = allCards.indexOf(card);
 
-        // row-wise stagger: প্রতি row এ 3টা card ধরা হচ্ছে
-        const delay = (index % 3) * 0.2; 
+        const delay = (index % 3) * 0.2; // stagger per row
         card.style.animationDelay = `${delay}s`;
 
         card.classList.add("show");
@@ -161,7 +161,8 @@ const observeCards = () => {
   const cards = document.querySelectorAll(".plant-card.hidden");
   cards.forEach((card) => observer.observe(card));
 };
-// ======== Show Details in Modal ========
+
+// ==================== SHOW PLANT DETAILS MODAL ====================
 const showDetails = (plant) => {
   const modal = document.getElementById("details-modal");
   modal.innerHTML = `
@@ -170,11 +171,12 @@ const showDetails = (plant) => {
       <img src="${plant.image}" alt="${plant.name}" style="width:100%; height:200px; object-fit:cover; border-radius:8px;" />
       <h2>${plant.name}</h2>
       <p>${plant.description}</p>
-        <div style="margin-top:10px;display: flex;align-items: center;justify-content: space-between;">
-        <p style="color:#34a853;background-color:#dcfce7;padding:5px;border-radius:5px;font-size:12px;"> ${plant.category_name || plant.category}</p>
-      <p> ৳${plant.price || 100}</p>
+      <div style="margin-top:10px; display:flex; justify-content:space-between; align-items:center;">
+        <p style="color:#34a853; background-color:#dcfce7; padding:5px; border-radius:5px; font-size:12px;">
+          ${plant.category_name || plant.category}
+        </p>
+        <p>৳${plant.price || 100}</p>
       </div>
-     
     </div>
   `;
   modal.style.display = "flex";
@@ -184,16 +186,16 @@ const showDetails = (plant) => {
   });
 };
 
-// ======== Close Modal ========
+// ==================== CLOSE MODAL ====================
 const closeModal = () => {
   const modal = document.getElementById("details-modal");
   modal.style.display = "none";
   modal.innerHTML = "";
 };
 
-// ======== Cart Functions ========
+// ==================== CART FUNCTIONS ====================
 const addToCart = (id, name, price) => {
-  const existing = cart.find(item => item.id === id);
+  const existing = cart.find((item) => item.id === id);
   if (existing) existing.qty += 1;
   else cart.push({ id, name, price, qty: 1 });
 
@@ -201,7 +203,7 @@ const addToCart = (id, name, price) => {
 };
 
 const removeFromCart = (id) => {
-  cart = cart.filter(item => item.id !== id);
+  cart = cart.filter((item) => item.id !== id);
   updateCart();
 };
 
@@ -215,30 +217,25 @@ const updateCart = () => {
   }
 
   let total = 0;
-  cart.forEach(item => {
+  cart.forEach((item) => {
     total += item.price * item.qty;
     const row = document.createElement("div");
     row.className = "cart-item";
-    row.innerHTML = `<p>${item.name} (x${item.qty}) - ৳${item.price * item.qty}</p>
-                     <button onclick="removeFromCart(${item.id})">❌</button>`;
+    row.innerHTML = `
+      <p>${item.name} (x${item.qty}) - ৳${item.price * item.qty}</p>
+      <button onclick="removeFromCart(${item.id})">❌</button>
+    `;
     cartContainer.appendChild(row);
   });
 
   cartTotalElement.innerText = `৳${total}`;
 };
 
-// ======== Initial Load ========
+// ==================== INITIAL LOAD ====================
 loadCategories();
 
-
-
-
-// ============Mobile Menu==========
+// ==================== MOBILE MENU TOGGLE ====================
 function toggleMenu() {
   const menu = document.getElementById("mobile-menu");
-  if (menu.style.right === "0px") {
-    menu.style.right = "-250px";
-  } else {
-    menu.style.right = "0px";
-  }
+  menu.style.right = menu.style.right === "0px" ? "-250px" : "0px";
 }

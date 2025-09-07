@@ -1,101 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Earth</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <!-- header part  -->
-     <header>
+
+    <!-- ================= HEADER ================= -->
+    <header>
         <nav>
-  <div class="nav_item_warper">
-    <div class="logo">Green Earth</div>
+            <div class="nav_item_warper">
+                <div class="logo">Green Earth</div>
 
- 
-    <div class="menu-icon" onclick="toggleMenu()">
-      ☰
-    </div>
+                <!-- Hamburger Menu Icon for Mobile -->
+                <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
-    <!-- Sidebar menu -->
-    <div id="mobile-menu" class="mobile-menu">
-      <div class="close-btn" onclick="toggleMenu()">✖</div>
-      <a href="">About</a>
-      <a href="">Gallery</a>
-      <a href="">Plant a Tree</a>
-      <a href=""><button class="btn">Plant a Tree</button></a>
-    </div>
-    <div class="links">
-        <a href="">About</a>
-      <a href="">Gallery</a>
-      <a href="">Plant a Tree</a>
-      
-    </div>
-       <button class="hide-res btn">Plant a Tree</button></a>
-  </div>
-</nav>
+                <!-- Sidebar Menu -->
+                <div id="mobile-menu" class="mobile-menu">
+                    <div class="close-btn" onclick="toggleMenu()">✖</div>
+                    <a href="">About</a>
+                    <a href="">Gallery</a>
+                    <a href="">Plant a Tree</a>
+                    <a href=""><button class="btn">Plant a Tree</button></a>
+                </div>
+
+                <!-- Desktop Links -->
+                <div class="links">
+                    <a href="">About</a>
+                    <a href="">Gallery</a>
+                    <a href="">Plant a Tree</a>
+                </div>
+
+                <!-- Desktop CTA Button -->
+                <button class="hide-res btn">Plant a Tree</button>
+            </div>
+        </nav>
+
+        <!-- Banner Section -->
         <div class="banner">
             <div class="left_leap">
-                <img  src="assets/hero-leaf1.png" alt="left_leap">
+                <img src="assets/hero-leaf1.png" alt="left_leap">
             </div>
             <div class="right_leap">
-                <img  src="assets/hero-leaf2.png" alt="right_leap">
+                <img src="assets/hero-leaf2.png" alt="right_leap">
             </div>
             <h1>Plant a Tree, Grow a Future</h1>
-            <p>Join our mission to plant 1 million trees and make the Earth greener for future <br>
-generations.</p>
-             <a href=""><button class="btn    btn_banner_res" style="margin-top: 5px;">Get Involved</button></a>
+            <p>
+                Join our mission to plant 1 million trees and make the Earth greener for future <br>
+                generations.
+            </p>
+            <a href=""><button class="btn btn_banner_res" style="margin-top: 5px;">Get Involved</button></a>
         </div>
-     </header>
-<!-- ====== Tree Shop Section ====== -->
-<section class="tree-shop">
-  <h2 style="text-align:center; margin: 20px 0;">Choose Your Trees</h2>
+    </header>
 
-  <div class="shop-layout">
-    <!-- Left Side: Categories -->
-    <div class="categories">
-      <h3>Categories</h3>
-      <div id="category-container"></div>
-    </div>
+    <!-- ================= TREE SHOP SECTION ================= -->
+    <section class="tree-shop">
+        <h2 style="text-align:center; margin: 20px 0;">Choose Your Trees</h2>
 
-    <!-- Middle: Plants -->
-    <div class="plants">
-      <div id="spinner" class="spinner" style="display:none;"></div>
-      <div id="plant-container" class="plant-grid"></div>
-    </div>
+        <div class="shop-layout">
 
-    <!-- Right Side: Cart -->
-    <div class="cart">
-      <h3>Your Cart</h3>
-      <div id="cart-container"></div>
-      <h4>Total: <span id="cart-total">৳0</span></h4>
-    </div>
-  </div>
-</section>
+            <!-- Categories Sidebar -->
+            <div class="categories">
+                <h3>Categories</h3>
+                <div id="category-container"></div>
+            </div>
 
-<!-- Modal for Details -->
-<div id="details-modal" class="modal" style="display:none;">
+            <!-- Plant Cards Section -->
+            <div class="plants">
+                <div id="spinner" class="spinner" style="display:none;"></div>
+                <div id="plant-container" class="plant-grid"></div>
+            </div>
 
-</div>
+            <!-- Cart Section -->
+            <div class="cart">
+                <h3>Your Cart</h3>
+                <div id="cart-container"></div>
+                <h4>Total: <span id="cart-total">৳0</span></h4>
+            </div>
 
-     <!-- about section part  -->
-      <div class="about">
+        </div>
+    </section>
+
+    <!-- ================= MODAL ================= -->
+    <div id="details-modal" class="modal" style="display:none;"></div>
+
+    <!-- ================= ABOUT SECTION ================= -->
+    <section class="about">
         <h2>About The Campaign</h2>
         <div class="about_box">
             <div class="about_left">
-                <img src="assets/about.png" alt="">
+                <img src="assets/about.png" alt="About Green Earth">
             </div>
             <div class="about_right">
-                <p>Green Earth is a global tree plantation initiative dedicated to fighting <br> climate change. Since our start, we’ve planted over 500,000 trees <br> worldwide. By joining our campaign, you help restore forests, create <br> habitats for wildlife, and combat global warming.</p>
-                <li>Restoration of natural habitats</li>
-                <li>Improvement of air quality</li>
-                <li>Support for local communities</li>
+                <p>
+                    Green Earth is a global tree plantation initiative dedicated to fighting <br>
+                    climate change. Since our start, we’ve planted over 500,000 trees <br>
+                    worldwide. By joining our campaign, you help restore forests, create <br>
+                    habitats for wildlife, and combat global warming.
+                </p>
+                <ul>
+                    <li>Restoration of natural habitats</li>
+                    <li>Improvement of air quality</li>
+                    <li>Support for local communities</li>
+                </ul>
             </div>
         </div>
-      </div>
-      <!-- impact part  -->
-       <div class="impact">
+    </section>
+
+    <!-- ================= IMPACT SECTION ================= -->
+    <section class="impact">
         <h2>Our Impact</h2>
         <div class="impact_boxs">
             <div class="impact_box">
@@ -103,36 +120,41 @@ generations.</p>
                 <p>Trees Planted</p>
             </div>
             <div class="impact_box">
-                <span>120+</span>  
+                <span>120+</span>
                 <p>Communities Involved</p>
             </div>
             <div class="impact_box">
-                <span>30+</span> 
+                <span>30+</span>
                 <p>Countries Reached</p>
             </div>
         </div>
-       </div>
-      <!-- contact form part  -->
-       <div class="contact_part">
+    </section>
+
+    <!-- ================= CONTACT FORM ================= -->
+    <section class="contact_part">
         <h2>Plant a Tree Today</h2>
         <form>
             <input type="text" placeholder="Your Name" required>
             <input type="email" placeholder="Your Email Address">
             <select id="trees" name="trees">
-      <option disabled selected>Number of Trees</option>
-      <option value="1">1 Tree</option>
-      <option value="2">2 Trees</option>
-      <option value="5">5 Trees</option>
-      <option value="10">10 Trees</option>
-      <option value="20">20 Trees</option>
-    </select>
-    <button style="width: 100%; " class="btn-form">Donate Now</button>
+                <option disabled selected>Number of Trees</option>
+                <option value="1">1 Tree</option>
+                <option value="2">2 Trees</option>
+                <option value="5">5 Trees</option>
+                <option value="10">10 Trees</option>
+                <option value="20">20 Trees</option>
+            </select>
+            <button type="submit" class="btn-form" style="width:100%;">Donate Now</button>
         </form>
-       </div>
-       <div class="footer">
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
         <p>© 2025 Green Earth. All Rights Reserved.</p>
-       </div>
+    </footer>
+
+    <!-- ================= SCRIPT ================= -->
     <script src="script.js"></script>
 </body>
-</html> 
- 
+
+</html>
