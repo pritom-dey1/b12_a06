@@ -386,7 +386,7 @@ select:focus {
 .close-btn {
   float: right;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: bold;
 }
 .cart-item{
@@ -417,5 +417,177 @@ select:focus {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+/* Inline circular spinner */
+.spinner {
+  display: none;               /* JS দিয়ে block/none টগল করবে */
+  width: 48px;
+  height: 48px;
+  margin: 24px auto;           /* container-এর মাঝে */
+  border: 4px solid #e6f5ec;   /* হালকা ব্যাকগ্রাউন্ড রিং */
+  border-top-color: #34a853;   /* সবুজ রিং */
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+/* 
+/* Hide menu icon by default */
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Sidebar menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;     /* hidden by default */
+  width: 250px;
+  height: 100%;
+  background: #15803d;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.mobile-menu a {
+  color: white;
+  padding: 12px 0;
+  font-family: poppins;
+  font-size: 16px;
+}
+
+.mobile-menu .btn {
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Close button */
+.mobile-menu .close-btn {
+  align-self: flex-end;
+  font-size: 24px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  color: white;
+}
+
+
+
+
+
+
+/* Mobile specific */
+/* ========== Responsive Design ========== */
+
+/* Tablet */
+@media (max-width: 992px) {
+ .btn_banner_res{
+ margin-bottom: 30px;
+ }
+  .shop-layout {
+    grid-template-columns: 1fr 2fr; /* Categories + Plants */
+  }
+
+  .impact_boxs {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .about_box {
+    flex-direction: column;
+  }
+  .about_left,
+  .about_right {
+    width: 100%;
+  }
+
+  .contact_part form {
+    width: 90%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .banner h1{
+    margin-top: 50px;
+  }
+ 
+      .links{
+    display: none; /* Hide normal nav links */
+  }
+  .menu-icon {
+    display: block;
+    margin-left: 120px; /* Show hamburger */
+  }
+  .hide-res{
+    display: none;
+  }
+ 
+  .links {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .banner {
+    padding: 80px 20px;
+    text-align: center;
+  }
+  .banner h1 {
+    font-size: 24px;
+  }
+  .banner p {
+    font-size: 14px;
+  }
+  
+  .left_leap img,
+  .right_leap img {
+    width: 150px;
+  }
+
+  .shop-layout {
+    grid-template-columns: 1fr; /* সব এক কলামে */
+  }
+
+  .plant-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .impact_boxs {
+    flex-direction: column;
+  }
+
+  .contact_part form {
+    width: 100%;
+  }
+
+  .about {
+    width: 90%;
+  }
+
+  .footer p {
+    font-size: 12px;
+    text-align: center;
+  }
+  .about_right li{
+    font-family: poppins;
+  }
+  .impact_box{
+    width: 300px;
+  }
+  .impact h2{
+    margin-bottom: 20px;
+  }
+  .contact_part form{
+    width: 90%;
+  }
+  .modal-content{
+    width: 90%;
   }
 }

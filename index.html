@@ -10,18 +10,31 @@
     <!-- header part  -->
      <header>
         <nav>
-           <div class="nav_item_warper">
-            <div class="logo">Green Earth</div>
-            <div class="links">
-            <a href="">About</a>
-            <a href="">Gallery</a>
-            <a href="">Plant a Tree</a>
-            </div>
-            <div class="main_button">
-                <a href=""><button class="btn">Plant a Tree</button></a>
-            </div>
-           </div>
-        </nav>
+  <div class="nav_item_warper">
+    <div class="logo">Green Earth</div>
+
+ 
+    <div class="menu-icon" onclick="toggleMenu()">
+      ☰
+    </div>
+
+    <!-- Sidebar menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="close-btn" onclick="toggleMenu()">✖</div>
+      <a href="">About</a>
+      <a href="">Gallery</a>
+      <a href="">Plant a Tree</a>
+      <a href=""><button class="btn">Plant a Tree</button></a>
+    </div>
+    <div class="links">
+        <a href="">About</a>
+      <a href="">Gallery</a>
+      <a href="">Plant a Tree</a>
+      
+    </div>
+       <button class="hide-res btn">Plant a Tree</button></a>
+  </div>
+</nav>
         <div class="banner">
             <div class="left_leap">
                 <img  src="assets/hero-leaf1.png" alt="left_leap">
@@ -32,7 +45,7 @@
             <h1>Plant a Tree, Grow a Future</h1>
             <p>Join our mission to plant 1 million trees and make the Earth greener for future <br>
 generations.</p>
-             <a href=""><button class="btn" style="margin-top: 5px;">Get Involved</button></a>
+             <a href=""><button class="btn    btn_banner_res" style="margin-top: 5px;">Get Involved</button></a>
         </div>
      </header>
 <!-- ====== Tree Shop Section ====== -->
@@ -48,7 +61,7 @@ generations.</p>
 
     <!-- Middle: Plants -->
     <div class="plants">
-      <div id="spinner" class="spinner" style="display:none;">Loading...</div>
+      <div id="spinner" class="spinner" style="display:none;"></div>
       <div id="plant-container" class="plant-grid"></div>
     </div>
 
@@ -63,7 +76,7 @@ generations.</p>
 
 <!-- Modal for Details -->
 <div id="details-modal" class="modal" style="display:none;">
-    
+
 </div>
 
      <!-- about section part  -->
