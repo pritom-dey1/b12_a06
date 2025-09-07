@@ -495,7 +495,9 @@ select:focus {
   .shop-layout {
     grid-template-columns: 1fr 2fr; /* Categories + Plants */
   }
-
+.plant-grid {
+    grid-template-columns: 1fr 1fr;
+  }
   .impact_boxs {
     flex-wrap: wrap;
     gap: 20px;
