@@ -197,6 +197,9 @@ button {
 .about_right p {
     text-align: left;
 }
+.about_right li{
+    margin-left: 20px;
+}
 
 /* ================= IMPACT SECTION ================= */
 .impact {
@@ -221,7 +224,7 @@ button {
 
 .impact_box {
     background-color: #fff;
-    padding: 40px 90px;
+    padding: 0 90px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -229,8 +232,13 @@ button {
     justify-content: center;
     transition: all 0.3s ease;
     width: 300px;
+    height: 150px;
+
 }
 
+.impact_box p{
+    text-align: center;
+}
 .impact_box span {
     font-size: 22px;
     font-weight: 600;
@@ -570,6 +578,7 @@ select:focus {
     }
 
     .about_right li {
+        
         font-family: 'Poppins', sans-serif;
     }
 
